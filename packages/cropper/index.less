@@ -1,0 +1,237 @@
+@import '../style/var';
+
+.eva-cropper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: @overlay-background-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &__cropper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    direction: ltr;
+    touch-action: none;
+    text-align: left;
+    background-color: black;
+  }
+  &__button-bar {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    margin:0 auto;
+    // background-color: @red;
+    bottom: 10px;
+    border-top:1px solid #fff;
+  }
+  @supports (bottom: env(safe-area-inset-bottom)) {
+    &__button-bar {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+  &__cancel {
+    margin-top: 4%;
+    margin-left: 9%;
+    color: @white;
+  }
+  &__determine {
+    margin-top: 4%;
+    margin-right: 9%;
+    color: @white;
+  }
+  &__box,
+  &__box-canvas,
+  &--drag-box,
+  &__crop-box,
+  &--face {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    user-select: none;
+  }
+  &__box-canvas img{
+      position: relative;
+      text-align: left;
+      user-select: none;
+      transform: none;
+      max-width: none;
+      max-height: none;
+  }
+  &__box {
+    overflow: hidden;
+  }
+  &--move {
+    cursor: move;
+  }
+  &--crop {
+    cursor: crosshair;
+  }
+  &--modal {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  &__view-box {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    outline: 1px solid #39f;
+    outline-color: @white;
+    user-select: none;
+  }
+  &__view-box img {
+    user-select: none;
+    text-align: left;
+    max-width: none;
+    max-height: none;
+  }
+  &--face {
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: 0.1;
+  }
+  &__info {
+    position: absolute;
+    left: 0px;
+    min-width: 65px;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 12px;
+  }
+  &__line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    &--w {
+      top: -3px;
+      left: 0;
+      height: 5px;
+      cursor: n-resize;
+    }
+    &--a {
+      top: 0;
+      left: -3px;
+      width: 5px;
+      cursor: w-resize;
+    }
+    &--s {
+      bottom: -3px;
+      left: 0;
+      height: 5px;
+      cursor: s-resize;
+    }
+    &--d {
+      top: 0;
+      right: -3px;
+      width: 5px;
+      cursor: e-resize;
+    }
+  }
+  &__point {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    opacity: 0.75;
+    background-color: #39f;
+    border-radius: 100%;
+    &--point1 {
+      top: -4px;
+      left: -4px;
+      cursor: nw-resize;
+    }
+    &--point2 {
+      top: -5px;
+      left: 50%;
+      margin-left: -3px;
+      cursor: n-resize;
+    }
+    &--point3 {
+      top: -4px;
+      right: -4px;
+      cursor: ne-resize;
+    }
+    &--point4 {
+      top: 50%;
+      left: -4px;
+      margin-top: -3px;
+      cursor: w-resize;
+    }
+    &--point5 {
+      top: 50%;
+      right: -4px;
+      margin-top: -3px;
+      cursor: e-resize;
+    }
+    &--point6 {
+      bottom: -5px;
+      left: -4px;
+      cursor: sw-resize;
+    }
+    &--point7 {
+      bottom: -5px;
+      left: 50%;
+      margin-left: -3px;
+      cursor: s-resize;
+    }
+    &--point8 {
+      bottom: -5px;
+      right: -4px;
+      cursor: se-resize;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  &__point {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 0.45;
+    background-color: #39f;
+    border-radius: 100%;
+    &--point1 {
+      top: -10px;
+      left: -10px;
+    }
+    &--point2,
+    &--point4,
+    &--point5,
+    &--point7 {
+      display: none;
+    }
+    &--point3 {
+      top: -10px;
+      right: -10px;
+    }
+    &--point4 {
+      top: 0;
+      left: 0;
+    }
+    &--point6 {
+      bottom: -10px;
+      left: -10px;
+    }
+    &--point8 {
+      bottom: -10px;
+      right: -10px;
+    }
+  }
+}

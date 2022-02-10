@@ -1,0 +1,13 @@
+@import '../style/var';
+
+.eva-col {
+  float: left;
+  box-sizing: border-box;
+}
+
+.generate-col(24);
+.generate-col(@n, @i: 1) when (@i =< @n) {
+  .eva-col--@{i} { width: @i * 100% / 24; }
+  .eva-col--offset-@{i} { margin-left: @i * 100% / 24; }
+  .generate-col(@n, (@i + 1));
+}

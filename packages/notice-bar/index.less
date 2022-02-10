@@ -1,0 +1,67 @@
+@import '../style/var';
+
+.eva-notice-bar {
+  display: flex;
+  height: 40px;
+  padding: 0 15px;
+  font-size: 14px;
+  line-height: 24px;
+  position: relative;
+  align-items: center;
+  color: @orange-dark;
+  background-color: @orange-light;
+
+  &--withicon {
+    position: relative;
+    padding-right: 40px;
+  }
+
+  &__left-icon {
+    font-size: 16px;
+    min-width: 20px;
+  }
+
+  &__right-icon {
+    top: 50%;
+    right: 15px;
+    font-size: 16px;
+    position: absolute;
+    margin-top: -0.5em;
+  }
+
+  &__wrap {
+    flex: 1;
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__content {
+    position: absolute;
+    white-space: nowrap;
+
+    &.eva-ellipsis {
+      max-width: 100%;
+    }
+  }
+
+  &__play {
+    animation: eva-notice-bar-play linear both;
+  }
+
+  &__play--infinite {
+    animation: eva-notice-bar-play-infinite linear infinite both;
+  }
+}
+
+/**
+ * Declare two same keyframes
+ * In case that some mobile browsers can continue animation when className changed
+ */
+@keyframes eva-notice-bar-play {
+  to { transform: translate3d(-100%, 0, 0); }
+}
+
+@keyframes eva-notice-bar-play-infinite {
+  to { transform: translate3d(-100%, 0, 0); }
+}

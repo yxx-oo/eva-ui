@@ -1,0 +1,67 @@
+@import '../style/var';
+
+.eva-nav-bar {
+  height: @nav-bar-height;
+  position: relative;
+  user-select: none;
+  text-align: center;
+  line-height: @nav-bar-height;
+  background-color: @nav-bar-background-color;
+
+  .van-icon {
+    color: @red;
+    vertical-align: middle;
+  }
+
+  &__arrow {
+    min-width: 1em;
+    font-size: @nav-bar-arrow-size;
+
+    + .van-nav-bar__text {
+      margin-left: -20px;
+      padding-left: 25px;
+    }
+  }
+
+  &--fixed {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+  }
+
+  &__title {
+    margin: 0 auto;
+    color: @nav-bar-title-text-color;
+    max-width: 60%;
+    font-size: @nav-bar-title-font-size;
+    font-weight: 500;
+  }
+
+  &__left,
+  &__right {
+    bottom: 0;
+    font-size: 14px;
+    position: absolute;
+  }
+
+  &__left {
+    left: 15px;
+  }
+
+  &__right {
+    right: 15px;
+  }
+
+  &__text {
+    color: @nav-bar-text-color;
+    margin: 0 -15px;
+    padding: 0 15px;
+    display: inline-block;
+    vertical-align: middle;
+
+    &:active {
+      background-color: @active-color;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-15 17:52:56
+ * @LastEditTime: 2019-08-23 15:49:28
+ * @LastEditors: Please set LastEditors
+ -->
+<template>
+  <demo-section>
+    <eva-tabs
+      v-model="tab"
+      sticky
+    >
+      <eva-tab title="基础图标">
+        <eva-col
+          v-for="icon in icons.basic"
+          :key="icon"
+          span="6"
+        >
+          <eva-icon :name="icon" />
+          <span>{{ icon }}</span>
+        </eva-col>
+      </eva-tab>
+      <eva-tab title="线框风格">
+        <eva-col
+          v-for="icon in icons.outline"
+          :key="icon"
+          span="6"
+        >
+          <eva-icon :name="icon" />
+          <span>{{ icon }}</span>
+        </eva-col>
+      </eva-tab>
+      <eva-tab title="实底风格">
+        <eva-col
+          v-for="icon in icons.filled"
+          :key="icon"
+          span="6"
+        >
+          <eva-icon :name="icon" />
+          <span>{{ icon }}</span>
+        </eva-col>
+      </eva-tab>
+    </eva-tabs>
+  </demo-section>
+</template>
+
+<script>
+import icons from '@vant/icons';
+
+export default {
+  i18n: {
+    'zh-CN': {
+      title: '图标列表',
+      info: '显示徽标',
+      basic: '基础图标'
+    },
+    'en-US': {
+      title: 'Icon List',
+      info: 'Show Info',
+      basic: 'Basic Icon'
+    }
+  },
+
+  data() {
+    this.icons = icons;
+    return {
+      tab: 0
+    };
+  }
+};
+</script>
+
+<style lang="less">
+.demo-icon {
+  font-size: 0;
+
+  &-list {
+    padding-top: 10px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 65px);
+  }
+
+  .eva-col {
+    float: none;
+    text-align: center;
+    height: 100px;
+    display: inline-block;
+    vertical-align: middle;
+
+    span {
+      display: block;
+      padding: 0 5px;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  .van-icon {
+    font-size: 32px;
+    margin: 15px 0;
+    color: rgb(69, 90, 100);
+  }
+
+  .eva-tab__pane {
+    padding-top: 10px;
+  }
+}
+</style>

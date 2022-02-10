@@ -1,0 +1,127 @@
+@keyframes eva-slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes eva-slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes eva-slide-down-enter {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes eva-slide-down-leave {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes eva-slide-left-enter {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes eva-slide-left-leave {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes eva-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes eva-slide-right-leave {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes eva-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes eva-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes eva-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.eva-fade {
+  &-enter-active {
+    animation: .3s eva-fade-in;
+  }
+
+  &-leave-active {
+    animation: .3s eva-fade-out;
+  }
+}
+
+.eva-slide-up {
+  &-enter-active {
+    animation: eva-slide-up-enter .3s both ease;
+  }
+
+  &-leave-active {
+    animation: eva-slide-up-leave .3s both ease;
+  }
+}
+
+.eva-slide-down {
+  &-enter-active {
+    animation: eva-slide-down-enter .3s both ease;
+  }
+
+  &-leave-active {
+    animation: eva-slide-down-leave .3s both ease;
+  }
+}
+
+.eva-slide-left {
+  &-enter-active {
+    animation: eva-slide-left-enter .3s both ease;
+  }
+
+  &-leave-active {
+    animation: eva-slide-left-leave .3s both ease;
+  }
+}
+
+.eva-slide-right {
+  &-enter-active {
+    animation: eva-slide-right-enter .3s both ease;
+  }
+
+  &-leave-active {
+    animation: eva-slide-right-leave .3s both ease;
+  }
+}
